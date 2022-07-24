@@ -1,34 +1,66 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import Button from "@mui/material/Button";
+import { Routes, Route } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
+import { createTheme } from "@mui/material/styles";
+import { green, purple, orange, red } from "@mui/material/colors";
+// import { unstable_createMuiStrictModeTheme } from "@mui/material/styles";
+import "./assets/main.css";
+// import "./theme.js";
+import { Navbar } from "./components/Navbar";
+import { Login } from "./pages/Login";
+import { Incomes } from "./pages/Incomes";
+import { Expenses } from "./pages/Expenses";
+import { Reports } from "./pages/Reports";
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const theme = unstable_createMuiStrictModeTheme();
+
+  const theme = createTheme({
+    typography: {
+      fontFamily: [
+        "-apple-system",
+        "BlinkMacSystemFont",
+        '"Segoe UI"',
+        "Roboto",
+        '"Helvetica Neue"',
+        "Arial",
+        "sans-serif",
+        '"Apple Color Emoji"',
+        '"Segoe UI Emoji"',
+        '"Segoe UI Symbol"',
+      ].join(","),
+    },
+    palette: {
+      primary: {
+        main: purple[500],
+      },
+      secondary: {
+        main: green[500],
+      },
+      success: {
+        main: orange[500],
+      },
+      hedera: {
+        main: "#89cf6d",
+        dark: "#6bb94c",
+      },
+    },
+  });
 
   return (
     <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ThemeProvider theme={theme}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={"hey"} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/incomes" element={<Incomes />} />
+          <Route path="/expenses" element={<Expenses />} />
+          <Route path="/reports" element={<Reports />} />
+        </Routes>
+      </ThemeProvider>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

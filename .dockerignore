@@ -1,0 +1,9 @@
+dist
+node_modules
+src
+public
+build
+.dockerignore
+.gitignore
+Dockerfile
+Dockerfile.prod
