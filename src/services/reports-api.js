@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export function hello(userId) {
+export function generateReportForUser(userId) {
   axios
     // .post("http://127.0.0.1:8080" + "/regular-expense/add", expense)
     // .then(() =>

@@ -1,6 +1,6 @@
 import React from "react";
-import { hello } from "../services/reports-api.js";
+import { generateReportForUser } from "../services/reports-api.js";
 
 export const Reports = () => {
-  return <div>{hello(1)}</div>;
+  return <div>{generateReportForUser(1)}</div>;
 };
