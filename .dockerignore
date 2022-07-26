@@ -1,7 +1,7 @@
 dist
-node_modules
-src
-public
+# node_modules
+# src
+# public
 build
 .dockerignore
 .gitignore
